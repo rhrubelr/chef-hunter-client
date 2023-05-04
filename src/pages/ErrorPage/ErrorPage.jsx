@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useRouteError } from 'react-router-dom';
 import img from '../../assets/404-img.jpg' ;
 const ErrorPage = () => {
-    const { error, status } = useRouteError()
+    const {error, status} = useRouteError();
     return (
         <section className='flex items-center h-screen p-16 bg-purple-100 text-purple-900'>
       <div className='container flex flex-col items-center justify-center px-5 mx-auto my-8'>
