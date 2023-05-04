@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
-        <div className='container mx-auto bg-purple-400 rounded-xl py-3 px-2'>
+        <div className='container mx-auto bg-zinc-300 rounded-xl py-3 px-2'>
             <div className='text-center'>
                 <h1>Chef Hunter </h1>
+                
             </div>
-            <div className="navbar bg-purple-600 rounded-2xl ">
+            <div className="navbar bg-zinc-500 rounded-2xl ">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -17,12 +18,12 @@ const Header = () => {
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow  rounded-box w-52 text-white">
                             <li><Link to='/'>Home</Link></li>
                             <li tabIndex={0}>
-                                <Link to='/blog' className="justify-between">
+                                <Link to='/blogs' className="justify-between">
                                    Blogs
                                 </Link>
                                
                             </li>
-                            <li><Link>About</Link></li>
+                            <li><Link to="/about">About</Link></li>
                         </ul>
                     </div>
                     <Link to='/home' className="btn btn-ghost normal-case text-xl">Chef Bazar</Link>

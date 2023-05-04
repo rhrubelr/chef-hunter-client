@@ -4,24 +4,28 @@ import app from '../firebase/firebase.config';
 
 export const AuthContext = createContext();
 
-
-const auth = getAuth(app)
+const auth = getAuth(app);
 
 const AuthProviders = ({children}) => { 
 
 const [user, setUser] = useState(null);
+const [loading, setLoading] = useState(true);
 
 
     const createUser = (email, password) => {
-        
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const signIn = (email, password) => {
-             
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     } 
 
+    const logOut = (email, password) => {
+        setLoading(true);
+        return signOut(auth);
+    }
     const googleProvider = new GoogleAuthProvider();
 
     const googleLogin = () =>{
@@ -30,6 +34,7 @@ const [user, setUser] = useState(null);
             const loggedInUser = result.user;
             console.log(loggedInUser)
             setUser(loggedInUser);
+            
         })
         .catch(error => console.log(error.message))
     }
@@ -51,7 +56,8 @@ const [user, setUser] = useState(null);
     useEffect( () => {
        const unsubscribe = onAuthStateChanged( auth,  loggedUser => {
             console.log('Logged in user inside auth', loggedUser)
-            setUser(loggedUser)
+            setUser(loggedUser);
+            setLoading(false);
             
         })
         
@@ -61,8 +67,10 @@ const [user, setUser] = useState(null);
     }, [])
     const authInfo = {
         user,
+        loading,
         createUser,
         signIn,
+        logOut,
         googleLogin,
         githubLogin
     }
