@@ -21,7 +21,7 @@ const router = createBrowserRouter ([
                 path: '/',
                 element: <Home></Home>,
                 
-                loader: ({params}) => fetch('https://chef-hunter-server-sheikhmsip.vercel.app/chefs')
+                loader: ({params}) => fetch('https://assignment-10-server-teal-delta.vercel.app/chefs')
             },
             {
                 path: '/login',
@@ -50,7 +50,7 @@ const router = createBrowserRouter ([
             {
                 path: '/:id',
                 element: <PrivateRoute><Details></Details></PrivateRoute>,
-                loader: ({params}) => fetch(`https://chef-hunter-server-sheikhmsip.vercel.app/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment-10-server-teal-delta.vercel.app/${params.id}`)
             }
         ]
     }

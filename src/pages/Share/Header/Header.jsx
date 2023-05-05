@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <div className='container mx-auto bg-zinc-300 rounded-xl py-3 px-2'>
             <div className='text-center'>
-                <h1>Chef Hunter </h1>
+                <h1>Food Buzz</h1>
                 
             </div>
             <div className="navbar bg-zinc-500 rounded-2xl ">
